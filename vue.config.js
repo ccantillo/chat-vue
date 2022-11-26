@@ -4,7 +4,6 @@ module.exports = defineConfig({
   transpileDependencies: true,
 });
 module.exports = {
-  outputDir: path.resolve(__dirname, "../server/public"),
   css: {
     loaderOptions: {
       sass: {
