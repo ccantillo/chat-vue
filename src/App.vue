@@ -78,7 +78,7 @@ export default {
     createRoomComponent,
   },
   setup() {
-    const socket = io("http://192.168.1.86:3000");
+    const socket = io("http://107.178.57.138:3000");
     const users = ref([]);
     const rooms = ref([]);
     const messages = ref([]);
