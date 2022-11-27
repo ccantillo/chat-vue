@@ -79,7 +79,7 @@ export default {
   },
   setup() {
     const socket = io("http://107.178.57.138:3000");
-    const users = ref([]);
+    let users = ref([]);
     const rooms = ref([]);
     const messages = ref([]);
     const message = ref("");
@@ -117,7 +117,18 @@ export default {
     });
 
     socket.on("getUsers", (data) => {
-      users.value = data;
+      users.value = data.filter((user) => {
+        console.log(
+          "the user room is ",
+          user.room,
+          "and the value is",
+          roomId.value
+        );
+        if (!roomId.value || user.room == roomId.value) {
+          console.log("entre aqui");
+          return user;
+        }
+      });
     });
     socket.on("getRooms", (data) => {
       rooms.value = data;
