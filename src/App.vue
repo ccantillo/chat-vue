@@ -165,7 +165,7 @@ export default {
 
     const joinToChat = () => {
       if (/^(([a-zA-Z0-9]{3,}))+$/.test(username.value) == false) {
-        errorLoginMsg.value = "Użuj minimum 3 liter lub cyfr";
+        errorLoginMsg.value = "user name should have at least 3 characters";
       } else {
         socket.emit("enterUsername", { username: username.value });
         username.value = "";
