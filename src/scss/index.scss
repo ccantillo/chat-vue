@@ -1,6 +1,7 @@
 @use './_base/index.scss' as *;
 @use './_abstracts/index.scss' as *;
 @use './_components/index.scss' as *;
+@import "~@coreui/coreui/scss/coreui";
 
 html,
 body {

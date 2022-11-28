@@ -2,24 +2,28 @@
 <template>
   <div class="users-box" :class="[isPreview ? 'none' : '']">
     <h3 class="users-headline">Users Online:</h3>
-    <ul class="users-list" v-for="u in users" :key="u.id">
-      <li class="user-list-item">{{ u.username }}</li>
-    </ul>
+    <div class="overflow-auto container-user">
+      <ul class="users-list" v-for="u in users" :key="u.id">
+        <li class="user-list-item">{{ u.username }}</li>
+      </ul>
+    </div>
     <h3 class="users-headline">Rooms:</h3>
-    <ul class="users-list" v-for="r in rooms" :key="r.date">
-      <li>
-        <button
-          @click="
-            (event) => {
-              $emit('update:roomId', r._id);
-            }
-          "
-          class="btn send-button user-list-item"
-        >
-          {{ r.name }}
-        </button>
-      </li>
-    </ul>
+    <div class="overflow-auto container-user">
+      <ul class="users-list" v-for="r in rooms" :key="r._id">
+        <li>
+          <button
+            @click="
+              (event) => {
+                $emit('update:roomId', r._id);
+              }
+            "
+            class="btn send-button user-list-item"
+          >
+            {{ r.name }}
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -71,6 +75,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container-user {
+  max-height: 15rem;
+  color: rgb(0, 0, 0);
+}
 .send-button {
   width: 100%;
 }

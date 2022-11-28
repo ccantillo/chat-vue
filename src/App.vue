@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="page-headline">Chat</h1>
-    <!-- Responsive toggle switch -->
+    <!--<h1 class="page-headline">Chat</h1>
     <div class="switch-box" v-if="isReady">
       <ul class="switch-list">
         <li
@@ -19,8 +18,7 @@
           chat
         </li>
       </ul>
-    </div>
-    <!-- End Responsive toggle -->
+    </div>-->
 
     <JoinUserComponent
       v-if="!isReady"
@@ -68,6 +66,7 @@ import JoinUserComponent from "@/components/LoginBox";
 import UserListComponent from "@/components/UserList";
 import ChatBoxComponent from "@/components/ChatBox";
 import createRoomComponent from "@/components/createRoom.vue";
+import { CSwitch, CButton } from "@coreui/vue";
 
 export default {
   name: "App",
@@ -76,6 +75,7 @@ export default {
     UserListComponent,
     ChatBoxComponent,
     createRoomComponent,
+    CButton,
   },
   setup() {
     const socket = io("http://107.178.57.138:3000");
@@ -178,7 +178,10 @@ export default {
 
     const sendMessage = () => {
       if (message.value == "") {
-        errorSendMsg.value = "Pole nie może być puste";
+        errorSendMsg.value = "Please write something";
+      }
+      if (roomId.value == "") {
+        errorSendMsg.value = "Please choose a room";
       } else {
         console.log("the room id is ", roomId.value);
         socket.emit("newMessage", {
@@ -192,7 +195,7 @@ export default {
 
     const createRoom = () => {
       if (roomName.value == "") {
-        errorSendMsg.value = "Pole nie może być puste";
+        errorSendMsg.value = "Please write something";
       } else {
         console.log("the room id is ", roomId);
         socket.emit("newRoom", {
@@ -232,6 +235,7 @@ export default {
 
 .wrapper {
   @include flex;
+  margin-top: 2%;
   width: 100%;
   height: 30rem;
 }
