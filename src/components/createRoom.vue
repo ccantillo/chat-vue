@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="btn-box">
-        <CButton class="btn send-button" type="submit">Create room</CButton>
+        <button class="btn send-button" type="submit">Create room</button>
       </div>
     </form>
   </div>

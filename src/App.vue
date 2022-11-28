@@ -66,7 +66,6 @@ import JoinUserComponent from "@/components/LoginBox";
 import UserListComponent from "@/components/UserList";
 import ChatBoxComponent from "@/components/ChatBox";
 import createRoomComponent from "@/components/createRoom.vue";
-import { CSwitch, CButton } from "@coreui/vue";
 
 export default {
   name: "App",
@@ -75,7 +74,6 @@ export default {
     UserListComponent,
     ChatBoxComponent,
     createRoomComponent,
-    CButton,
   },
   setup() {
     const socket = io("http://107.178.57.138:3000");
